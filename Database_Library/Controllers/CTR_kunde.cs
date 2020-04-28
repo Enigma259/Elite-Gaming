@@ -8,6 +8,9 @@ using Database_Library.Views;
 
 namespace Database_Library.Controllers
 {
+    /// <summary>
+    /// This is the class CTR_kunde.
+    /// </summary>
     public sealed class CTR_kunde
     {
         private DB_Kunde db_kunde;
@@ -15,6 +18,9 @@ namespace Database_Library.Controllers
         private V_Automat v_automat;
         private CTR_Automat ctr_automat;
 
+        /// <summary>
+        /// this is the constructor for the class CTR_kunde.
+        /// </summary>
         public CTR_kunde()
         {
             this.db_kunde = DB_Kunde.GetInstance();
@@ -23,11 +29,22 @@ namespace Database_Library.Controllers
             this.ctr_automat = new CTR_Automat();
         }
 
+        /// <summary>
+        /// This method creates a customer.
+        /// </summary>
+        /// <param name="navn"></param>
+        /// <returns></returns>
         public string Create(string navn)
         {
             return db_kunde.Create(navn);
         }
 
+        /// <summary>
+        /// This method updates a customer.
+        /// </summary>
+        /// <param name="kunde_id"></param>
+        /// <param name="navn"></param>
+        /// <returns></returns>
         public string Update(int kunde_id, string navn)
         {
             string result;
@@ -51,11 +68,16 @@ namespace Database_Library.Controllers
             return result;
         }
 
+        /// <summary>
+        /// This method deletes a customer.
+        /// </summary>
+        /// <param name="kunde_id"></param>
+        /// <returns></returns>
         public string Delete(int kunde_id)
         {
             string result = DeleteAutomater(kunde_id);
 
-            if (result.Equals("Success"));
+            if (result.Equals("Success"))
             {
                 result = db_kunde.Delete(kunde_id);
             }
@@ -63,6 +85,11 @@ namespace Database_Library.Controllers
             return result;
         }
 
+        /// <summary>
+        /// This method deletes all the automats that are linked to a specific customer.
+        /// </summary>
+        /// <param name="kunde_id"></param>
+        /// <returns></returns>
         private string DeleteAutomater(int kunde_id)
         {
             List<Table_Automat> automater = v_automat.FindByKundeId(kunde_id);

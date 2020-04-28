@@ -7,6 +7,9 @@ using Database_Library.Database;
 
 namespace Database_Library.Views
 {
+    /// <summary>
+    /// This is the class V_Automat.
+    /// </summary>
     public sealed class V_Automat
     {
         private static volatile V_Automat _instance;

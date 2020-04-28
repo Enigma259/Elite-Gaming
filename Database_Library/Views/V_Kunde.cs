@@ -7,6 +7,9 @@ using Database_Library.Database;
 
 namespace Database_Library.Views
 {
+    /// <summary>
+    /// This is the class V_Kunde.
+    /// </summary>
     public sealed class V_Kunde
     {
         private static volatile V_Kunde _instance;

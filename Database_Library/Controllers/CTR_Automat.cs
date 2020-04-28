@@ -8,6 +8,9 @@ using Database_Library.Views;
 
 namespace Database_Library.Controllers
 {
+    /// <summary>
+    /// This is the class CTR_Automat.
+    /// </summary>
     public sealed class CTR_Automat
     {
         private DB_Automat db_automat;
@@ -16,6 +19,9 @@ namespace Database_Library.Controllers
         private V_AutomatData v_automat_data;
         private CTR_AutomatData ctr_automat_data;
 
+        /// <summary>
+        /// This is the constructor for the class CTR_Automat.
+        /// </summary>
         public CTR_Automat()
         {
             this.db_automat = DB_Automat.GetInstance();
@@ -25,6 +31,13 @@ namespace Database_Library.Controllers
             this.ctr_automat_data = new CTR_AutomatData();
         }
 
+        /// <summary>
+        /// This method creates an automat.
+        /// </summary>
+        /// <param name="kunde_id"></param>
+        /// <param name="serienummer"></param>
+        /// <param name="spilnavn"></param>
+        /// <returns>string</returns>
         public string Create(int kunde_id, string serienummer, string spilnavn)
         {
             string result;
@@ -48,6 +61,14 @@ namespace Database_Library.Controllers
             return result;
         }
 
+        /// <summary>
+        /// This method updates an automat.
+        /// </summary>
+        /// <param name="automat_id"></param>
+        /// <param name="kunde_id"></param>
+        /// <param name="serienummer"></param>
+        /// <param name="spilnavn"></param>
+        /// <returns>string</returns>
         public string Update(int automat_id, int kunde_id, string serienummer, string spilnavn)
         {
             string result;
@@ -82,6 +103,11 @@ namespace Database_Library.Controllers
             return result;
         }
 
+        /// <summary>
+        /// This method deletes an automat.
+        /// </summary>
+        /// <param name="automat_id"></param>
+        /// <returns>string</returns>
         public string Delete(int automat_id)
         {
             string result = DeleteAutomatData(automat_id);
@@ -94,6 +120,11 @@ namespace Database_Library.Controllers
             return result;
         }
 
+        /// <summary>
+        /// This method deletes all the automat data that are linked to a specific automat.
+        /// </summary>
+        /// <param name="automat_id"></param>
+        /// <returns>string</returns>
         private string DeleteAutomatData(int automat_id)
         {
             List<Table_AutomatData> automat_dataer = v_automat_data.FindByAutomatId(automat_id);

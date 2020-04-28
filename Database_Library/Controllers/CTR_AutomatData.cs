@@ -8,6 +8,9 @@ using Database_Library.Views;
 
 namespace Database_Library.Controllers
 {
+    /// <summary>
+    /// This is the class CTR_AutomatData.
+    /// </summary>
     public sealed class CTR_AutomatData
     {
         private DB_AutomatData db_automat_data;
@@ -15,6 +18,9 @@ namespace Database_Library.Controllers
         private V_Automat v_automat;
         private V_Kunde v_kunde;
 
+        /// <summary>
+        /// This is the constructor for the class CTR_AutomatData.
+        /// </summary>
         public CTR_AutomatData()
         {
             this.db_automat_data = DB_AutomatData.GetInstance();
@@ -23,6 +29,15 @@ namespace Database_Library.Controllers
             this.v_kunde = V_Kunde.GetInstance();
         }
 
+        /// <summary>
+        /// This method creates an automat data.
+        /// </summary>
+        /// <param name="automat_id"></param>
+        /// <param name="kunde_id"></param>
+        /// <param name="dato"></param>
+        /// <param name="kr_ind"></param>
+        /// <param name="kr_ud"></param>
+        /// <returns>string</returns>
         public string Create(int automat_id, int kunde_id, DateTime dato, int kr_ind, int kr_ud)
         {
             string result;
@@ -57,6 +72,16 @@ namespace Database_Library.Controllers
             return result;
         }
 
+        /// <summary>
+        /// This method updates an automat data.
+        /// </summary>
+        /// <param name="data_id"></param>
+        /// <param name="automat_id"></param>
+        /// <param name="kunde_id"></param>
+        /// <param name="dato"></param>
+        /// <param name="kr_ind"></param>
+        /// <param name="kr_ud"></param>
+        /// <returns>string</returns>
         public string Update(int data_id, int automat_id, int kunde_id, DateTime dato, int kr_ind, int kr_ud)
         {
 
@@ -103,6 +128,11 @@ namespace Database_Library.Controllers
             return result;
         }
 
+        /// <summary>
+        /// This method deletes an automat data.
+        /// </summary>
+        /// <param name="data_id"></param>
+        /// <returns>string</returns>
         public string Delete(int data_id)
         {
             return db_automat_data.Delete(data_id);
