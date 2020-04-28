@@ -167,7 +167,7 @@ namespace Database_Library.Database
         /// <param name="kunde_id"></param>
         /// <param name="navn"></param>
         /// <returns>string</returns>
-        public string Update(int kundeId, string navn)
+        public string Update(int kunde_id, string navn)
         {
             string result = "";
 
