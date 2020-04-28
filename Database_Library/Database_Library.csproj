@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CTR_Automat.cs" />
+    <Compile Include="Controllers\CTR_AutomatData.cs" />
+    <Compile Include="Controllers\CTR_kunde.cs" />
     <Compile Include="Database\Database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -58,7 +61,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>

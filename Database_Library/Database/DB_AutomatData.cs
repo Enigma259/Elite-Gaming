@@ -46,13 +46,13 @@ namespace Database_Library.Database
         /// <summary>
         /// This method creates an automat data
         /// </summary>
-        /// <param name="automatId"></param>
+        /// <param name="automat_id"></param>
         /// <param name="kunde_id"></param>
         /// <param name="dato"></param>
         /// <param name="kr_ind"></param>
         /// <param name="kr_ud"></param>
         /// <returns>string</returns>
-        public string Create(int automatId, int kunde_id, DateTime dato, int kr_ind, int kr_ud)
+        public string Create(int automat_id, int kunde_id, DateTime dato, int kr_ind, int kr_ud)
         {
             Table_AutomatData automat_data;
             string result;
@@ -61,7 +61,7 @@ namespace Database_Library.Database
             {
                 automat_data = new Table_AutomatData
                 {
-                    automat_id = automatId,
+                    automat_id = automat_id,
                     kunde_id = kunde_id,
                     dato = dato,
                     kr_ind = kr_ind,
