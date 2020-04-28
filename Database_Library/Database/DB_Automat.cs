@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Database_Library.Database
 {
+    /// <summary>
+    /// This is the class DB_Automat.
+    /// </summary>
     public sealed class DB_Automat
     {
         private static volatile DB_Automat _instance;
@@ -43,11 +46,11 @@ namespace Database_Library.Database
         /// <summary>
         /// This method creates an automat.
         /// </summary>
-        /// <param name="kundeId"></param>
+        /// <param name="kunde_id"></param>
         /// <param name="serienummer"></param>
         /// <param name="spilnavn"></param>
         /// <returns>string</returns>
-        public string Create(int kundeId, string serienummer, string spilnavn)
+        public string Create(int kunde_id, string serienummer, string spilnavn)
         {
             Table_Automat automat;
             string result;
@@ -56,7 +59,7 @@ namespace Database_Library.Database
             {
                 automat = new Table_Automat
                 {
-                    kundeId = kundeId,
+                    kunde_id = kunde_id,
                     serienummer = serienummer,
                     spilnavn = spilnavn
                 };
@@ -74,14 +77,10 @@ namespace Database_Library.Database
         }
 
         /// <summary>
-        /// 
+        /// This method lists all automats.
         /// </summary>
-        /// <param name="automatId"></param>
-        /// <param name="kundeId"></param>
-        /// <param name="serienummer"></param>
-        /// <param name="spilnavn"></param>
         /// <returns>List<Table_Automat></returns>
-        public List<Table_Automat> ListAll(int automatId, int kundeId, string serienummer, string spilnavn)
+        public List<Table_Automat> ListAll()
         {
             List<Table_Automat> automater;
 
@@ -94,7 +93,8 @@ namespace Database_Library.Database
             {
                 Table_Automat automat = new Table_Automat
                 {
-                    kundeId = -1000,
+                    automat_id = -1000,
+                    kunde_id = -1000,
                     serienummer = "ERROR",
                     spilnavn = exception.Message
                 };
@@ -109,24 +109,25 @@ namespace Database_Library.Database
         }
 
         /// <summary>
-        /// This method finds an automat by their automatId.
+        /// This method finds an automat by their automat_id.
         /// </summary>
-        /// <param name="automatId"></param>
+        /// <param name="automat_id"></param>
         /// <returns>Table_Automat</returns>
-        public Table_Automat FindByAutomatId(int automatId)
+        public Table_Automat FindByAutomatId(int automat_id)
         {
             Table_Automat automat;
 
             try
             {
-                automat = db.Table_Automats.First(a => a.automatId.Equals(automatId));
+                automat = db.Table_Automats.First(a => a.automat_id.Equals(automat_id));
             }
 
             catch (Exception exception)
             {
                 automat = new Table_Automat
                 {
-                    kundeId = -1000,
+                    automat_id = -1000,
+                    kunde_id = -1000,
                     serienummer = "ERROR",
                     spilnavn = exception.Message
                 };
@@ -137,24 +138,25 @@ namespace Database_Library.Database
         }
 
         /// <summary>
-        /// This method finds a list of automates by their kundeId.
+        /// This method finds a list of automates by their kunde_id.
         /// </summary>
-        /// <param name="kundeId"></param>
+        /// <param name="kunde_id"></param>
         /// <returns>List<Table_Automat></returns>
-        public List<Table_Automat> FindByKundeId(int kundeId)
+        public List<Table_Automat> FindByKundeId(int kunde_id)
         {
             List<Table_Automat> automater;
 
             try
             {
-                automater = (from a in db.Table_Automats where a.kundeId.Equals(kundeId) select a).ToList();
+                automater = (from a in db.Table_Automats where a.kunde_id.Equals(kunde_id) select a).ToList();
             }
 
             catch (Exception exception)
             {
                 Table_Automat automat = new Table_Automat
                 {
-                    kundeId = -1000,
+                    automat_id = -1000,
+                    kunde_id = -1000,
                     serienummer = "ERROR",
                     spilnavn = exception.Message
                 };
@@ -186,7 +188,8 @@ namespace Database_Library.Database
             {
                 Table_Automat automat = new Table_Automat
                 {
-                    kundeId = -1000,
+                    automat_id = -1000,
+                    kunde_id = -1000,
                     serienummer = "ERROR",
                     spilnavn = exception.Message
                 };
@@ -218,7 +221,8 @@ namespace Database_Library.Database
             {
                 Table_Automat automat = new Table_Automat
                 {
-                    kundeId = -1000,
+                    automat_id = -1000,
+                    kunde_id = -1000,
                     serienummer = "ERROR",
                     spilnavn = exception.Message
                 };
@@ -235,22 +239,22 @@ namespace Database_Library.Database
         /// <summary>
         /// This method updates an automat.
         /// </summary>
-        /// <param name="automatId"></param>
-        /// <param name="kundeId"></param>
+        /// <param name="automat_id"></param>
+        /// <param name="kunde_id"></param>
         /// <param name="serienummer"></param>
         /// <param name="spilnavn"></param>
         /// <returns>string</returns>
-        public string Update(int automatId, int kundeId, string serienummer, string spilnavn)
+        public string Update(int automatId, int kunde_id, string serienummer, string spilnavn)
         {
             string result = "";
 
             try
             {
-                var automat = from a in db.Table_Automats where a.automatId.Equals(automatId) select a;
+                var automat = from a in db.Table_Automats where a.automat_id.Equals(automatId) select a;
 
                 foreach (Table_Automat tmp_automat in automat)
                 {
-                    tmp_automat.kundeId = kundeId;
+                    tmp_automat.kunde_id = kunde_id;
                     tmp_automat.serienummer = serienummer;
                     tmp_automat.spilnavn = spilnavn;
                 }

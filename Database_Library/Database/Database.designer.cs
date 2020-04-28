@@ -102,9 +102,9 @@ namespace Database_Library.Database
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _automatId;
+		private int _automat_id;
 		
-		private int _kundeId;
+		private int _kunde_id;
 		
 		private string _serienummer;
 		
@@ -118,10 +118,10 @@ namespace Database_Library.Database
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnautomatIdChanging(int value);
-    partial void OnautomatIdChanged();
-    partial void OnkundeIdChanging(int value);
-    partial void OnkundeIdChanged();
+    partial void Onautomat_idChanging(int value);
+    partial void Onautomat_idChanged();
+    partial void Onkunde_idChanging(int value);
+    partial void Onkunde_idChanged();
     partial void OnserienummerChanging(string value);
     partial void OnserienummerChanged();
     partial void OnspilnavnChanging(string value);
@@ -135,46 +135,46 @@ namespace Database_Library.Database
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_automatId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int automatId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_automat_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int automat_id
 		{
 			get
 			{
-				return this._automatId;
+				return this._automat_id;
 			}
 			set
 			{
-				if ((this._automatId != value))
+				if ((this._automat_id != value))
 				{
-					this.OnautomatIdChanging(value);
+					this.Onautomat_idChanging(value);
 					this.SendPropertyChanging();
-					this._automatId = value;
-					this.SendPropertyChanged("automatId");
-					this.OnautomatIdChanged();
+					this._automat_id = value;
+					this.SendPropertyChanged("automat_id");
+					this.Onautomat_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kundeId", DbType="Int NOT NULL")]
-		public int kundeId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kunde_id", DbType="Int NOT NULL")]
+		public int kunde_id
 		{
 			get
 			{
-				return this._kundeId;
+				return this._kunde_id;
 			}
 			set
 			{
-				if ((this._kundeId != value))
+				if ((this._kunde_id != value))
 				{
 					if (this._Table_Kunde.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnkundeIdChanging(value);
+					this.Onkunde_idChanging(value);
 					this.SendPropertyChanging();
-					this._kundeId = value;
-					this.SendPropertyChanged("kundeId");
-					this.OnkundeIdChanged();
+					this._kunde_id = value;
+					this.SendPropertyChanged("kunde_id");
+					this.Onkunde_idChanged();
 				}
 			}
 		}
@@ -219,7 +219,7 @@ namespace Database_Library.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Automat_Table_AutomatData", Storage="_Table_AutomatDatas", ThisKey="automatId", OtherKey="automatId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Automat_Table_AutomatData", Storage="_Table_AutomatDatas", ThisKey="automat_id", OtherKey="automat_id")]
 		public EntitySet<Table_AutomatData> Table_AutomatDatas
 		{
 			get
@@ -232,7 +232,7 @@ namespace Database_Library.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Kunde_Table_Automat", Storage="_Table_Kunde", ThisKey="kundeId", OtherKey="kundeId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Kunde_Table_Automat", Storage="_Table_Kunde", ThisKey="kunde_id", OtherKey="kunde_id", IsForeignKey=true)]
 		public Table_Kunde Table_Kunde
 		{
 			get
@@ -255,11 +255,11 @@ namespace Database_Library.Database
 					if ((value != null))
 					{
 						value.Table_Automats.Add(this);
-						this._kundeId = value.kundeId;
+						this._kunde_id = value.kunde_id;
 					}
 					else
 					{
-						this._kundeId = default(int);
+						this._kunde_id = default(int);
 					}
 					this.SendPropertyChanged("Table_Kunde");
 				}
@@ -305,7 +305,7 @@ namespace Database_Library.Database
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _kundeId;
+		private int _kunde_id;
 		
 		private string _navn;
 		
@@ -317,8 +317,8 @@ namespace Database_Library.Database
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnkundeIdChanging(int value);
-    partial void OnkundeIdChanged();
+    partial void Onkunde_idChanging(int value);
+    partial void Onkunde_idChanged();
     partial void OnnavnChanging(string value);
     partial void OnnavnChanged();
     #endregion
@@ -330,22 +330,22 @@ namespace Database_Library.Database
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kundeId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int kundeId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kunde_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int kunde_id
 		{
 			get
 			{
-				return this._kundeId;
+				return this._kunde_id;
 			}
 			set
 			{
-				if ((this._kundeId != value))
+				if ((this._kunde_id != value))
 				{
-					this.OnkundeIdChanging(value);
+					this.Onkunde_idChanging(value);
 					this.SendPropertyChanging();
-					this._kundeId = value;
-					this.SendPropertyChanged("kundeId");
-					this.OnkundeIdChanged();
+					this._kunde_id = value;
+					this.SendPropertyChanged("kunde_id");
+					this.Onkunde_idChanged();
 				}
 			}
 		}
@@ -370,7 +370,7 @@ namespace Database_Library.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Kunde_Table_Automat", Storage="_Table_Automats", ThisKey="kundeId", OtherKey="kundeId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Kunde_Table_Automat", Storage="_Table_Automats", ThisKey="kunde_id", OtherKey="kunde_id")]
 		public EntitySet<Table_Automat> Table_Automats
 		{
 			get
@@ -383,7 +383,7 @@ namespace Database_Library.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Kunde_Table_AutomatData", Storage="_Table_AutomatDatas", ThisKey="kundeId", OtherKey="kundeId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Kunde_Table_AutomatData", Storage="_Table_AutomatDatas", ThisKey="kunde_id", OtherKey="kunde_id")]
 		public EntitySet<Table_AutomatData> Table_AutomatDatas
 		{
 			get
@@ -447,11 +447,11 @@ namespace Database_Library.Database
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _dataId;
+		private int _data_id;
 		
-		private int _automatId;
+		private int _automat_id;
 		
-		private int _kundeId;
+		private int _kunde_id;
 		
 		private System.DateTime _dato;
 		
@@ -469,12 +469,12 @@ namespace Database_Library.Database
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OndataIdChanging(int value);
-    partial void OndataIdChanged();
-    partial void OnautomatIdChanging(int value);
-    partial void OnautomatIdChanged();
-    partial void OnkundeIdChanging(int value);
-    partial void OnkundeIdChanged();
+    partial void Ondata_idChanging(int value);
+    partial void Ondata_idChanged();
+    partial void Onautomat_idChanging(int value);
+    partial void Onautomat_idChanged();
+    partial void Onkunde_idChanging(int value);
+    partial void Onkunde_idChanged();
     partial void OndatoChanging(System.DateTime value);
     partial void OndatoChanged();
     partial void Onkr_indChanging(int value);
@@ -492,70 +492,70 @@ namespace Database_Library.Database
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dataId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int dataId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_data_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int data_id
 		{
 			get
 			{
-				return this._dataId;
+				return this._data_id;
 			}
 			set
 			{
-				if ((this._dataId != value))
+				if ((this._data_id != value))
 				{
-					this.OndataIdChanging(value);
+					this.Ondata_idChanging(value);
 					this.SendPropertyChanging();
-					this._dataId = value;
-					this.SendPropertyChanged("dataId");
-					this.OndataIdChanged();
+					this._data_id = value;
+					this.SendPropertyChanged("data_id");
+					this.Ondata_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_automatId", DbType="Int NOT NULL")]
-		public int automatId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_automat_id", DbType="Int NOT NULL")]
+		public int automat_id
 		{
 			get
 			{
-				return this._automatId;
+				return this._automat_id;
 			}
 			set
 			{
-				if ((this._automatId != value))
+				if ((this._automat_id != value))
 				{
 					if (this._Table_Automat.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnautomatIdChanging(value);
+					this.Onautomat_idChanging(value);
 					this.SendPropertyChanging();
-					this._automatId = value;
-					this.SendPropertyChanged("automatId");
-					this.OnautomatIdChanged();
+					this._automat_id = value;
+					this.SendPropertyChanged("automat_id");
+					this.Onautomat_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kundeId", DbType="Int NOT NULL")]
-		public int kundeId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kunde_id", DbType="Int NOT NULL")]
+		public int kunde_id
 		{
 			get
 			{
-				return this._kundeId;
+				return this._kunde_id;
 			}
 			set
 			{
-				if ((this._kundeId != value))
+				if ((this._kunde_id != value))
 				{
 					if (this._Table_Kunde.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnkundeIdChanging(value);
+					this.Onkunde_idChanging(value);
 					this.SendPropertyChanging();
-					this._kundeId = value;
-					this.SendPropertyChanged("kundeId");
-					this.OnkundeIdChanged();
+					this._kunde_id = value;
+					this.SendPropertyChanged("kunde_id");
+					this.Onkunde_idChanged();
 				}
 			}
 		}
@@ -640,7 +640,7 @@ namespace Database_Library.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Automat_Table_AutomatData", Storage="_Table_Automat", ThisKey="automatId", OtherKey="automatId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Automat_Table_AutomatData", Storage="_Table_Automat", ThisKey="automat_id", OtherKey="automat_id", IsForeignKey=true)]
 		public Table_Automat Table_Automat
 		{
 			get
@@ -663,18 +663,18 @@ namespace Database_Library.Database
 					if ((value != null))
 					{
 						value.Table_AutomatDatas.Add(this);
-						this._automatId = value.automatId;
+						this._automat_id = value.automat_id;
 					}
 					else
 					{
-						this._automatId = default(int);
+						this._automat_id = default(int);
 					}
 					this.SendPropertyChanged("Table_Automat");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Kunde_Table_AutomatData", Storage="_Table_Kunde", ThisKey="kundeId", OtherKey="kundeId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Kunde_Table_AutomatData", Storage="_Table_Kunde", ThisKey="kunde_id", OtherKey="kunde_id", IsForeignKey=true)]
 		public Table_Kunde Table_Kunde
 		{
 			get
@@ -697,11 +697,11 @@ namespace Database_Library.Database
 					if ((value != null))
 					{
 						value.Table_AutomatDatas.Add(this);
-						this._kundeId = value.kundeId;
+						this._kunde_id = value.kunde_id;
 					}
 					else
 					{
-						this._kundeId = default(int);
+						this._kunde_id = default(int);
 					}
 					this.SendPropertyChanged("Table_Kunde");
 				}

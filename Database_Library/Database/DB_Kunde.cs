@@ -90,6 +90,7 @@ namespace Database_Library.Database
             {
                 Table_Kunde kunde = new Table_Kunde
                 {
+                    kunde_id = -1000,
                     navn = exception.Message
                 };
 
@@ -103,23 +104,24 @@ namespace Database_Library.Database
         }
 
         /// <summary>
-        /// This method finds a customer by its kundeId.
+        /// This method finds a customer by its kunde_id.
         /// </summary>
         /// <param name="kundeId"></param>
         /// <returns>Table_Kunde</returns>
-        public Table_Kunde FindByKundeId(int kundeId)
+        public Table_Kunde FindByKundeId(int kunde_id)
         {
             Table_Kunde kunde;
 
             try
             {
-                kunde = db.Table_Kundes.First(k => k.kundeId.Equals(kundeId));
+                kunde = db.Table_Kundes.First(k => k.kunde_id.Equals(kunde_id));
             }
 
             catch (Exception exception)
             {
                 kunde = new Table_Kunde
                 {
+                    kunde_id = -1000,
                     navn = exception.Message
                 };
 
@@ -146,6 +148,7 @@ namespace Database_Library.Database
             {
                 Table_Kunde kunde = new Table_Kunde
                 {
+                    kunde_id = -1000,
                     navn = exception.Message
                 };
 
@@ -161,7 +164,7 @@ namespace Database_Library.Database
         /// <summary>
         /// This method updates a customer
         /// </summary>
-        /// <param name="kundeId"></param>
+        /// <param name="kunde_id"></param>
         /// <param name="navn"></param>
         /// <returns>string</returns>
         public string Update(int kundeId, string navn)
@@ -170,7 +173,7 @@ namespace Database_Library.Database
 
             try
             {
-                var kunde = from k in db.Table_Kundes where k.kundeId.Equals(kundeId) select k;
+                var kunde = from k in db.Table_Kundes where k.kunde_id.Equals(kunde_id) select k;
 
                 foreach (Table_Kunde tmp_kunde in kunde)
                 {
