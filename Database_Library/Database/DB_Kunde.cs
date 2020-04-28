@@ -43,6 +43,11 @@ namespace Database_Library.Database
             return _instance;
         }
 
+        /// <summary>
+        /// This method creates a customer.
+        /// </summary>
+        /// <param name="navn"></param>
+        /// <returns></returns>
         public string Create(string navn)
         {
             Table_Kunde kunde;
@@ -68,6 +73,10 @@ namespace Database_Library.Database
             return result;
         }
 
+        /// <summary>
+        /// This method lists all customers
+        /// </summary>
+        /// <returns></returns>
         public List<Table_Kunde> ListAll()
         {
             List<Table_Kunde> kunder;
@@ -93,7 +102,11 @@ namespace Database_Library.Database
             return kunder;
         }
 
-        //
+        /// <summary>
+        /// This method finds a customer by its kundeId.
+        /// </summary>
+        /// <param name="kundeId"></param>
+        /// <returns></returns>
         public Table_Kunde FindByKundeId(int kundeId)
         {
             Table_Kunde kunde;
@@ -115,7 +128,11 @@ namespace Database_Library.Database
             return kunde;
         }
 
-        //
+        /// <summary>
+        /// This method finds a list of customers by their navn.
+        /// </summary>
+        /// <param name="navn"></param>
+        /// <returns></returns>
         public List<Table_Kunde> FindByNavn(string navn)
         {
             List<Table_Kunde> kunder;
@@ -141,7 +158,12 @@ namespace Database_Library.Database
             return kunder;
         }
 
-        //
+        /// <summary>
+        /// This method updates a customer
+        /// </summary>
+        /// <param name="kundeId"></param>
+        /// <param name="navn"></param>
+        /// <returns></returns>
         public string Update(int kundeId, string navn)
         {
             string result = "";
@@ -167,7 +189,11 @@ namespace Database_Library.Database
             return result;
         }
 
-        //
+        /// <summary>
+        /// This method deletes a customer.
+        /// </summary>
+        /// <param name="kundeId"></param>
+        /// <returns></returns>
         public string Delete(int kundeId)
         {
             Table_Kunde kunde;
