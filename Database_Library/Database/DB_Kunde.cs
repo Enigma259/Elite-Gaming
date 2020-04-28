@@ -47,7 +47,7 @@ namespace Database_Library.Database
         /// This method creates a customer.
         /// </summary>
         /// <param name="navn"></param>
-        /// <returns></returns>
+        /// <returns>string</returns>
         public string Create(string navn)
         {
             Table_Kunde kunde;
@@ -76,7 +76,7 @@ namespace Database_Library.Database
         /// <summary>
         /// This method lists all customers
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List<Table_Kunde></returns>
         public List<Table_Kunde> ListAll()
         {
             List<Table_Kunde> kunder;
@@ -106,7 +106,7 @@ namespace Database_Library.Database
         /// This method finds a customer by its kundeId.
         /// </summary>
         /// <param name="kundeId"></param>
-        /// <returns></returns>
+        /// <returns>Table_Kunde</returns>
         public Table_Kunde FindByKundeId(int kundeId)
         {
             Table_Kunde kunde;
@@ -132,7 +132,7 @@ namespace Database_Library.Database
         /// This method finds a list of customers by their navn.
         /// </summary>
         /// <param name="navn"></param>
-        /// <returns></returns>
+        /// <returns>List<Table_Kunde></returns>
         public List<Table_Kunde> FindByNavn(string navn)
         {
             List<Table_Kunde> kunder;
@@ -163,7 +163,7 @@ namespace Database_Library.Database
         /// </summary>
         /// <param name="kundeId"></param>
         /// <param name="navn"></param>
-        /// <returns></returns>
+        /// <returns>string</returns>
         public string Update(int kundeId, string navn)
         {
             string result = "";
@@ -193,7 +193,7 @@ namespace Database_Library.Database
         /// This method deletes a customer.
         /// </summary>
         /// <param name="kundeId"></param>
-        /// <returns></returns>
+        /// <returns>string</returns>
         public string Delete(int kundeId)
         {
             Table_Kunde kunde;
