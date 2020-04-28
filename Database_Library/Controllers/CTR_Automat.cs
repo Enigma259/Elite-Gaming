@@ -11,13 +11,11 @@ namespace Database_Library.Controllers
     public sealed class CTR_Automat
     {
         private DB_Automat db_automat;
-        private CTR_kunde ctr_kunde;
         private V_Automat v_automat;
 
         public CTR_Automat()
         {
             this.db_automat = DB_Automat.GetInstance();
-            this.ctr_kunde = new CTR_kunde();
             this.v_automat = V_Automat.GetInstance();
         }
 

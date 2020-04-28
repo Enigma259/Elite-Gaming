@@ -59,10 +59,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Views\V_Automat.cs" />
+    <Compile Include="Views\V_AutomatData.cs" />
+    <Compile Include="Views\V_Kunde.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Database\Database.dbml">

@@ -11,8 +11,6 @@ namespace Database_Library.Controllers
     public sealed class CTR_AutomatData
     {
         private DB_AutomatData db_automat_data;
-        private CTR_kunde ctr_kunde;
-        private CTR_Automat ctr_automat;
         private V_AutomatData v_automat_data;
 
         public CTR_AutomatData()

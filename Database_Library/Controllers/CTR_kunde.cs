@@ -13,7 +13,7 @@ namespace Database_Library.Controllers
         private DB_Kunde db_kunde;
         private V_Kunde v_kunde;
 
-        public CTR_AutomatData()
+        public CTR_kunde()
         {
             this.db_kunde = DB_Kunde.GetInstance();
             this.v_kunde = V_Kunde.GetInstance();
