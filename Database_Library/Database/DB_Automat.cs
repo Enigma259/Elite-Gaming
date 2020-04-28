@@ -40,7 +40,13 @@ namespace Database_Library.Database
             return _instance;
         }
 
-        //
+        /// <summary>
+        /// This method creates an automat.
+        /// </summary>
+        /// <param name="kundeId"></param>
+        /// <param name="serienummer"></param>
+        /// <param name="spilnavn"></param>
+        /// <returns>string</returns>
         public string Create(int kundeId, string serienummer, string spilnavn)
         {
             Table_Automat automat;
@@ -67,7 +73,14 @@ namespace Database_Library.Database
             return result;
         }
 
-        //
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="automatId"></param>
+        /// <param name="kundeId"></param>
+        /// <param name="serienummer"></param>
+        /// <param name="spilnavn"></param>
+        /// <returns>List<Table_Automat></returns>
         public List<Table_Automat> ListAll(int automatId, int kundeId, string serienummer, string spilnavn)
         {
             List<Table_Automat> automater;
@@ -95,7 +108,11 @@ namespace Database_Library.Database
             return automater;
         }
 
-        //
+        /// <summary>
+        /// This method finds an automat by their automatId.
+        /// </summary>
+        /// <param name="automatId"></param>
+        /// <returns>Table_Automat</returns>
         public Table_Automat FindByAutomatId(int automatId)
         {
             Table_Automat automat;
@@ -119,7 +136,11 @@ namespace Database_Library.Database
             return automat;
         }
 
-        //
+        /// <summary>
+        /// This method finds a list of automates by their kundeId.
+        /// </summary>
+        /// <param name="kundeId"></param>
+        /// <returns>List<Table_Automat></returns>
         public List<Table_Automat> FindByKundeId(int kundeId)
         {
             List<Table_Automat> automater;
@@ -147,7 +168,11 @@ namespace Database_Library.Database
             return automater;
         }
 
-        //
+        /// <summary>
+        /// This method finds a list of automates by their serienummer.
+        /// </summary>
+        /// <param name="serienummer"></param>
+        /// <returns>List<Table_Automat></returns>
         public List<Table_Automat> FindBySerienummer(string serienummer)
         {
             List<Table_Automat> automater;
@@ -175,7 +200,11 @@ namespace Database_Library.Database
             return automater;
         }
 
-        //
+        /// <summary>
+        /// This method finds a list of automates by their spilnavn.
+        /// </summary>
+        /// <param name="spilnavn"></param>
+        /// <returns>List<Table_Automat></returns>
         public List<Table_Automat> FindBySpilnavn(string spilnavn)
         {
             List<Table_Automat> automater;
@@ -203,7 +232,14 @@ namespace Database_Library.Database
             return automater;
         }
 
-        //
+        /// <summary>
+        /// This method updates an automat.
+        /// </summary>
+        /// <param name="automatId"></param>
+        /// <param name="kundeId"></param>
+        /// <param name="serienummer"></param>
+        /// <param name="spilnavn"></param>
+        /// <returns>string</returns>
         public string Update(int automatId, int kundeId, string serienummer, string spilnavn)
         {
             string result = "";
@@ -231,7 +267,11 @@ namespace Database_Library.Database
             return result;
         }
 
-        //
+        /// <summary>
+        /// This method deletes an automat.
+        /// </summary>
+        /// <param name="automatId"></param>
+        /// <returns>string</returns>
         public string Delete(int automatId)
         {
             Table_Automat automat;
