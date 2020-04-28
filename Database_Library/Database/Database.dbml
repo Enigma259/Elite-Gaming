@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="psua0218_1026970" Class="DatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=kraka.ucn.dk;Initial Catalog=psua0218_1026970;Persist Security Info=True;User ID=psua0218_1026970" SettingsObjectName="Database_Library.Properties.Settings" SettingsPropertyName="psua0218_1026970ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Table_Automat" Member="Table_Automats">
+    <Type Name="Table_Automat">
+      <Column Name="automatId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kundeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="serienummer" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="spilnavn" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Table_Automat_Table_AutomatData" Member="Table_AutomatDatas" ThisKey="automatId" OtherKey="automatId" Type="Table_AutomatData" />
+      <Association Name="Table_Kunde_Table_Automat" Member="Table_Kunde" ThisKey="kundeId" OtherKey="kundeId" Type="Table_Kunde" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Table_Kunde" Member="Table_Kundes">
+    <Type Name="Table_Kunde">
+      <Column Name="kundeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="navn" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Table_Kunde_Table_Automat" Member="Table_Automats" ThisKey="kundeId" OtherKey="kundeId" Type="Table_Automat" />
+      <Association Name="Table_Kunde_Table_AutomatData" Member="Table_AutomatDatas" ThisKey="kundeId" OtherKey="kundeId" Type="Table_AutomatData" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Table_AutomatData" Member="Table_AutomatDatas">
+    <Type Name="Table_AutomatData">
+      <Column Name="dataId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="automatId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kundeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dato" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="kr_ind" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kr_ud" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bsi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Table_Automat_Table_AutomatData" Member="Table_Automat" ThisKey="automatId" OtherKey="automatId" Type="Table_Automat" IsForeignKey="true" />
+      <Association Name="Table_Kunde_Table_AutomatData" Member="Table_Kunde" ThisKey="kundeId" OtherKey="kundeId" Type="Table_Kunde" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
